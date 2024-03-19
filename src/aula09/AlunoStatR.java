@@ -6,36 +6,41 @@ package aula09;
   e apresentar a média das idades
  */
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AlunoStatR {
     public static void main(String[] args){
-        Aluno[] alunos = new Aluno[5];
+        ArrayList<Aluno> alunos = new ArrayList<Aluno>();
         Scanner ler = new Scanner(System.in);
 
         LerAlunos(alunos, ler);
 
         int somaIdades = getSomaIdades(alunos);
         System.out.println("Média alunos = "+
-                           somaIdades / alunos.length);
+                           somaIdades / alunos.size());
     }
 
-    private static void LerAlunos(Aluno[] alunos, Scanner ler) {
-        for (int pos = 0; pos < 5; pos++){
-            Aluno aluno = new Aluno();
+    private static void LerAlunos(ArrayList<Aluno> alunos,
+                                  Scanner ler) {
+        Aluno aluno;
+        do {
+            aluno = new Aluno();
             System.out.print("Nome: ");
             aluno.nome = ler.next();
             System.out.print("Idade: ");
             aluno.idade = ler.nextInt();
-            alunos[pos] = aluno;
-        }
+            if (aluno.idade > 0) {
+                alunos.add(aluno);
+            }
+        } while (aluno.idade > 0);
     }
 
-    private static int getSomaIdades(Aluno[] alunos) {
+    private static int getSomaIdades(ArrayList<Aluno> alunos) {
         int somaIdades = 0;
-        for (int pos = 4; pos > -1; pos--){
-            System.out.print(alunos[pos].idade + " ");
-            somaIdades += alunos[pos].idade;
+        for (int pos = alunos.size()-1; pos > -1; pos--){
+            System.out.print(alunos.get(pos).idade + " ");
+            somaIdades += alunos.get(pos).idade;
         }
         return somaIdades;
     }
