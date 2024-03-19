@@ -12,17 +12,16 @@ import java.util.Scanner;
 public class AlunoStatR {
     public static void main(String[] args){
         ArrayList<Aluno> alunos = new ArrayList<Aluno>();
-        Scanner ler = new Scanner(System.in);
 
-        LerAlunos(alunos, ler);
+        LerAlunos(alunos);
 
         int somaIdades = getSomaIdades(alunos);
         System.out.println("Média alunos = "+
                            somaIdades / alunos.size());
     }
 
-    private static void LerAlunos(ArrayList<Aluno> alunos,
-                                  Scanner ler) {
+    private static void LerAlunos(ArrayList<Aluno> alunos) {
+        Scanner ler = new Scanner(System.in);
         Aluno aluno;
         do {
             aluno = new Aluno();
