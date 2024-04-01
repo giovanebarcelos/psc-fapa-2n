@@ -17,11 +17,30 @@ public class PessoaApp {
                 case 2:pessoa.consultar();break;
                 case 3:pessoa.alterar();break;
                 case 4:pessoa.excluir();break;
+                case 5:pessoa.listar();break;
                 case 9: break;
                 default: System.out.println("Opcao Invalida!");
             }
         }
         System.out.println(pessoa);
+    }
+
+    private void listar() {
+        System.out.println("Pessoas\n");
+        System.out.printf("%-9s", "Codigo");
+        System.out.printf("%-30s", "Nome");
+        System.out.printf("%-6s", "Tipo");
+        System.out.printf("%-20s", "CPF/CNPJ");
+
+        for (Pessoa pessoa: this.pessoas){
+            System.out.printf("\n%-9s", pessoa.codigo);
+            System.out.printf("%-30s", pessoa.nome);
+            boolean pf = pessoa instanceof PessoaFisica;
+            System.out.printf("%-6s",pf ? "PF": "PJ");
+            System.out.printf("%-20s",
+                    pf ? ((PessoaFisica) pessoa).CPF :
+                            ((PessoaJuridica) pessoa).CNPJ);
+        }
     }
 
     private void incluir() {
