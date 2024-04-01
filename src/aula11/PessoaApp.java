@@ -44,7 +44,14 @@ public class PessoaApp {
         pessoa.codigo = codigo;
         pessoa.nome = nome;
 
-        pessoas.add(pessoa);
+        String sn = Util.getString(
+                "Salvar <S/N>? ",
+                new String[]{"S", "N"},
+                "Digite S ou N");
+
+        if ("S".equals(sn)){
+            pessoas.add(pessoa);
+        }
     }
     private void consultar() {
         System.out.println("Consultar");
