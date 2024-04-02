@@ -44,10 +44,20 @@ public class PessoaApp {
     }
 
     private void incluir() {
-        int codigo;
+        int codigo = 0;
         String nome, pfOUpj, idPessoa;
 
-        codigo = Util.getInt("Codigo: ");
+        while (codigo == 0) {
+            codigo = Util.getInt("Codigo: ");
+            try {
+                if (existePessoa(codigo)) {
+                    throw new Exception("Pessoa ja existe!\n");
+                }
+            } catch (Exception e){
+                System.out.printf(e.getMessage());
+                codigo = 0;
+            }
+        }
         nome = Util.getString("Nome: ");
         pfOUpj = Util.getString("PF ou PJ: ",
                 new String[]{"PJ", "PF"}, "Digite PF ou PJ");
@@ -72,6 +82,16 @@ public class PessoaApp {
             pessoas.add(pessoa);
         }
     }
+
+    private boolean existePessoa(int codigo) {
+        for (Pessoa pessoa: pessoas){
+            if (pessoa.codigo == codigo ){
+                return true;
+            }
+        }
+        return false;
+    }
+
     private void consultar() {
         System.out.println("Consultar");
     }
