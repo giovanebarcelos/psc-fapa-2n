@@ -11,9 +11,9 @@ public class Fatorial {
             System.out.print("Numero: ");
             numero = scanner.nextInt();
             if (numero > 0){
-                //int numFatorial = fatorial(numero);
+                int numFatorial = fatorial(numero);
                 //int numFatorial = fatorialFor(numero);
-                int numFatorial = fatorialRecursao(numero);
+                //int numFatorial = fatorialRecursao(numero);
                 System.out.printf(
                         "Fatorial de %d eh %d\n",
                         numero, numFatorial);
