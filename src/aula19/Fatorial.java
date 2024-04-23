@@ -12,7 +12,8 @@ public class Fatorial {
             numero = scanner.nextInt();
             if (numero > 0){
                 //int numFatorial = fatorial(numero);
-                int numFatorial = fatorialFor(numero);
+                //int numFatorial = fatorialFor(numero);
+                int numFatorial = fatorialRecursao(numero);
                 System.out.printf(
                         "Fatorial de %d eh %d\n",
                         numero, numFatorial);
@@ -40,5 +41,12 @@ public class Fatorial {
             fatorial = fatorial * fator;
         }
         return fatorial;
+    }
+
+    public static int fatorialRecursao(int numero) {
+        if (numero < 2){
+            return numero;
+        }
+        return ( numero * fatorialRecursao(numero - 1));
     }
 }
