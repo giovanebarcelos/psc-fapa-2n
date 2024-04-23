@@ -11,7 +11,8 @@ public class Fatorial {
             System.out.print("Numero: ");
             numero = scanner.nextInt();
             if (numero > 0){
-                int numFatorial = fatorial(numero);
+                //int numFatorial = fatorial(numero);
+                int numFatorial = fatorialFor(numero);
                 System.out.printf(
                         "Fatorial de %d eh %d\n",
                         numero, numFatorial);
@@ -27,6 +28,16 @@ public class Fatorial {
         while (fator <= numero){
             fatorial = fatorial * fator;
             fator++;
+        }
+        return fatorial;
+    }
+
+    public static int fatorialFor(int numero) {
+        int fatorial = 1;
+        for (int fator = 1;
+             fator <= numero;
+             fator++) {
+            fatorial = fatorial * fator;
         }
         return fatorial;
     }
