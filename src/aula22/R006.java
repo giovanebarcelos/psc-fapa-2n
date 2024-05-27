@@ -21,6 +21,16 @@ public class R006 {
         System.out.print("Digite o valor de Y: ");
         int y = scanner.nextInt();
 
+        double average = mediaAritmeticaNumerosImparesEntre( n, y);
+
+        System.out.println("A média aritmética dos números ímpares entre "
+                + n + " e " + y + " é " + average);
+
+        scanner.close();
+
+    }
+
+    private static double mediaAritmeticaNumerosImparesEntre(int n, int y) {
         int soma = 0;
         int contadorImpares = 0;
 
@@ -33,10 +43,6 @@ public class R006 {
         }
         double average = (double) soma / contadorImpares;
 
-        System.out.println("A média aritmética dos números ímpares entre "
-                + n + " e " + y + " é " + average);
-
-        scanner.close();
-
+        return average;
     }
 }
